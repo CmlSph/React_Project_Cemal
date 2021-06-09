@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-function Item(props) {
+import { useParams, Link } from "react-router-dom";
+function Shop(match) {
   useEffect(() => {
-    // fetchItem();
-    console.log(props);
+    fetchItems();
+    console.log(match);
   }, []);
+  const [items, setItems] = useState([]);
+  let { bookId } = useParams();
+  const fetchItems = async () => {
+    const data = await fetch(`https://openlibrary.org/books/${bookId}.json`);
+    const items = await data.json();
+    console.log(items);
 
-  // const fetchItem = async () => {
-  //   const fetchItem = await fetch(
-  //     `https://openlibrary.org/${match.params.cityID}.json`
-  //   );
-  //   console.log(fetchItem);
-  //   console.log(match.params.cityID);
-  //   // const item = await fetchItem.json();
-  //   // setItem(item);
-  //   // console.log(item);
-  // };
+    // console.log(items.first_sentence.value);
+    setItems(items);
+  };
   return (
     <div>
       <h1>Hello World</h1>
-      {/* <button className="goBackButton" to={goBackHandle}>
-        go back
-      </button> */}
+      {/* <h1>{items.first_sentence.value}</h1> */}
+      <h2>Title: {items.title}</h2>
+
+      <h3>Number of Pages: {items.number_of_pages}</h3>
+      <h3>Publisher: {items.publishers}</h3>
+      <h3>Publish Date: {items.publish_date}</h3>
+      <h3>Subjects: {items.subjects}</h3>
+
       <Link className="back" to="/">
         Back
       </Link>
     </div>
   );
 }
-export default Item;
+export default Shop;

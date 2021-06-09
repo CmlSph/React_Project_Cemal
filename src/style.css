@@ -6,14 +6,24 @@
 .city_card {
   border: 3px solid blue;
   margin-top: 5px;
+  width: 80%;
 }
 
 .searchInput {
-  margin-left: 28%;
+  width: 85%;
+  height: 35px;
+  border-radius: 10px;
+  margin: 1rem;
 }
 
 .buttonGetCity {
-  margin-left: 39%;
+  width: 100px;
+  border-radius: 5px;
+  background-color: rgb(36, 6, 117);
+  color: aliceblue;
+  border: 3px solid red;
+  display: flex;
+  margin: 0 auto;
 }
 
 .goBackButton {
@@ -47,4 +57,29 @@ nav {
   justify-content: space-around;
   align-items: center;
   list-style: none;
+}
+
+.city_card {
+  background: url("https://c0.wallpaperflare.com/preview/111/362/467/beautiful-clouds-sky-stars.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  color: aliceblue;
+  box-shadow: 5px 5px 5px 5px rgb(2, 29, 12);
+  width: 90%;
+  height: 50%;
+  text-align: center;
+  border-radius: 15px;
+  margin: 20px auto;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 35px 15px;
+}
+
+img {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  margin-top: 5px;
 }

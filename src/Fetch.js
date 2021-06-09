@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import image from "./unavailableimg.jpg";
 
 const Fetch = (props) => {
   const [books, setBooks] = useState([]);
@@ -35,6 +36,10 @@ const Fetch = (props) => {
     }
   };
 
+  useEffect(() => {
+    console.log(books);
+  });
+
   return (
     <>
       <div>
@@ -44,7 +49,15 @@ const Fetch = (props) => {
         {" "}
         {books.map((item) => (
           <p className="innerContainer" key={item.seed[0]}>
-            <Link to={`/${item.seed[0]}`}>
+            {item && item.isbn ? (
+              <img
+                src={`http://covers.openlibrary.org/b/isbn/${item.isbn[1]}-M.jpg`}
+              />
+            ) : (
+              <img src={image} />
+            )}
+            <br />
+            <Link to={`${item.seed[0]}`}>
               <span>Click to see the description</span>
               <br />
               Title: {item.title}, <br />
@@ -54,11 +67,11 @@ const Fetch = (props) => {
             First Publish Year: {item.first_publish_year}, <br />
             Cover ID: {item.cover_i}, <br />
             Seed[0]: {item.seed[0]}, <br />
-            {item && item.isbn ? (
+            {/* {item && item.isbn ? (
               <img
                 src={`http://covers.openlibrary.org/b/isbn/${item.isbn[1]}-M.jpg`}
               />
-            ) : null}
+            ) : null} */}
           </p>
         ))}
       </div>
