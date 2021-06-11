@@ -8,12 +8,12 @@ function Nav() {
   return (
     <div className="App">
       <nav>
-        <h3>Logo</h3>
+        <h3>Get Books</h3>
         <ul className="nav-links">
           <Link style={navStyle} to="/about">
             <li>About</li>
           </Link>
-          <Link style={navStyle} to="/MyChart">
+          <Link style={navStyle} to="/example">
             <li>MyChart</li>
           </Link>
         </ul>
